@@ -1,0 +1,36 @@
+<div>
+    <nav class="navbars bg-dark text-center">
+      <div class="navbarText">
+        <span class="text-light">
+          Chemist Compound
+        </span>
+      </div>
+    </nav>
+    
+    <!-- card -->
+    <div class="cards" >
+      <div *ngFor="let comp of compound | paginate:{
+        itemsPerPage: tableSize,
+        currentPage: page
+      }; let i = index"  style="width: 18rem;">
+        <div class="innercard">
+          <div class="image">
+            <img src="{{comp.imageSource}}" class="card-img-top" alt="">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">{{comp.compoundName}}</h5>
+            <p class="card-text"></p>
+            <a href="viewComp/{{comp.id}}" class="btn btn-primary">View Description</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="paginator">
+      <pagination-controls 
+      previousLabel="Prev"
+      nextLabel="Next"
+      (pageChange)="onTableDataChange($event)"></pagination-controls>
+    </div>
+    
+  </div>
