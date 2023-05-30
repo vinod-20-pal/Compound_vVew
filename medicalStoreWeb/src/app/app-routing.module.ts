@@ -4,6 +4,7 @@ import { ViewComponentComponent } from './view-component/view-component.componen
 import { CompoundComponent } from './compound/compound.component';
 
 const routes: Routes = [
+  { path: '', redirectTo:"compound", pathMatch: 'full' },
   {
     component: ViewComponentComponent,
     path:'viewComp/:id'
@@ -11,7 +12,8 @@ const routes: Routes = [
   {
     component: CompoundComponent,
     path: 'compound',
-  }
+  },
+  {path:'**',redirectTo:'compound',pathMatch:'full'}
 ];
 
 @NgModule({

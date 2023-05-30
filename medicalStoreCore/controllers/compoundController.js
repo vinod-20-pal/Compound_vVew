@@ -28,7 +28,8 @@ const getAllCompound = async (req,res) =>{
 //get single compound
 
 const getOneCompound = async (req,res) =>{
-    let compound = await Compound.findOne({where: {id: req.body.id}})
+    let _id = req.params.id;
+    let compound = await Compound.findOne({where: {id: _id}})
     res.status(200).send(compound);
 }
 
